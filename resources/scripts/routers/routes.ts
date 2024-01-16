@@ -14,6 +14,9 @@ import AccountSSHContainer from '@/components/dashboard/ssh/AccountSSHContainer'
 import ActivityLogContainer from '@/components/dashboard/activity/ActivityLogContainer';
 import ServerActivityLogContainer from '@/components/server/ServerActivityLogContainer';
 import McVersionsContainer from '@/components/server/versions/McVersionsContainer';
+import MinecraftWorldContainer from '@/components/server/minecraft-worlds/MinecraftWorldContainer';
+import ModpacksContainer from '@/components/server/modpacks/ModpacksContainer';
+
 
 // Each of the router files is already code split out appropriately — so
 // all of the items above will only be loaded in when that router is loaded.
@@ -84,6 +87,20 @@ export default {
             permission: 'file.*',
             name: 'Files',
             component: FileManagerContainer,
+        },
+        {
+            path: '/minecraft-worlds',
+            permission: 'file.*',
+            name: 'Worlds',
+            component: MinecraftWorldContainer,
+            eggIds: [1, 2, 3, 5],
+        },
+        {
+            path: '/modpacks',
+            permission: 'file.*',
+            name: 'Modpacks',
+            component: ModpacksContainer,
+            eggIds: [1, 3],
         },
         {
             path: '/versions',

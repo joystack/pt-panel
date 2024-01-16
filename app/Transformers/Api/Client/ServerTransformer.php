@@ -42,8 +42,7 @@ class ServerTransformer extends BaseClientTransformer
             'internal_id' => $server->id,
             'uuid' => $server->uuid,
             'name' => $server->name,
-'mcversion' => $server->mcversion,
-
+            'mcversion' => $server->mcversion,
             'nest_id' => $server->nest_id,
             'egg_id' => $server->egg_id,
             'node' => $server->node->name,
