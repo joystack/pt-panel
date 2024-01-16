@@ -93,14 +93,14 @@ export default {
             permission: 'file.*',
             name: 'Worlds',
             component: MinecraftWorldContainer,
-            eggIds: [1, 2, 3, 5],
+            nestId: 1,
         },
         {
             path: '/modpacks',
             permission: 'file.*',
             name: 'Modpacks',
             component: ModpacksContainer,
-            eggIds: [1, 3],
+            nestId: 1,
         },
         {
             path: '/versions',
