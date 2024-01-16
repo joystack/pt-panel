@@ -13,6 +13,7 @@ import AccountApiContainer from '@/components/dashboard/AccountApiContainer';
 import AccountSSHContainer from '@/components/dashboard/ssh/AccountSSHContainer';
 import ActivityLogContainer from '@/components/dashboard/activity/ActivityLogContainer';
 import ServerActivityLogContainer from '@/components/server/ServerActivityLogContainer';
+import McVersionsContainer from '@/components/server/versions/McVersionsContainer';
 
 // Each of the router files is already code split out appropriately — so
 // all of the items above will only be loaded in when that router is loaded.
@@ -33,6 +34,10 @@ interface RouteDefinition {
 
 interface ServerRouteDefinition extends RouteDefinition {
     permission: string | string[] | null;
+   nestId?: number;
+   eggId?: number;
+   nestIds?: number[];
+   eggIds?: number[];
 }
 
 interface Routes {
@@ -80,6 +85,13 @@ export default {
             name: 'Files',
             component: FileManagerContainer,
         },
+    {
+      path: '/versions',
+      permission: 'file.*',
+      name: 'Version',
+      nestId: 1,
+      component: McVersionsContainer,
+    },
         {
             path: '/files/:action(edit|new)',
             permission: 'file.*',

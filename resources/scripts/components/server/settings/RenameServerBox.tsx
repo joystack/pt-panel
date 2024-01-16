@@ -17,7 +17,7 @@ import { Textarea } from '@/components/elements/Input';
 
 interface Values {
     name: string;
-    description: string;
+    description: any;
 }
 
 const RenameServerBox = () => {

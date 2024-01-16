@@ -121,7 +121,10 @@ return [
             'edit' => 'Changed the :variable variable from ":old" to ":new"',
             'image' => 'Updated the Docker Image for the server from :old to :new',
         ],
-        'subuser' => [
+                 'versions' => [
+            'install' => 'Installation of :name',
+        ],
+'subuser' => [
             'create' => 'Added :email as a subuser',
             'update' => 'Updated the subuser permissions for :email',
             'delete' => 'Removed :email as a subuser',

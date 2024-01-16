@@ -226,3 +226,35 @@ Route::group(['prefix' => 'nests'], function () {
     Route::delete('/egg/{egg:id}', [Admin\Nests\EggController::class, 'destroy']);
     Route::delete('/egg/{egg:id}/variables/{variable:id}', [Admin\Nests\EggVariableController::class, 'destroy']);
 });
+/*
+|--------------------------------------------------------------------------
+| Bagou License Center Routes
+|--------------------------------------------------------------------------
+|
+| Endpoint: /admin/bagoucenter
+|
+*/
+Route::group(['prefix' => 'bagoucenter'], function () {
+    Route::get('/', [Admin\Bagou\BagouCenterController::class, 'index'])->name('admin.bagoucenter');
+    Route::get('/license/', [Admin\Bagou\BagouLicenseController::class, 'index'])->name('admin.bagoucenter.license');
+    Route::get('/license/{addon}', [Admin\Bagou\BagouLicenseController::class, 'license'])->name('admin.bagoucenter.license.addon');
+    
+    Route::get('/versions/', [Admin\Bagou\BagouVersionsController::class, 'index'])->name('admin.bagoucenter.versions');
+
+    Route::get('/settings', [Admin\Bagou\BagouSettingsController::class, 'index'])->name('admin.bagoucenter.settings');
+    Route::get('/settings/{addon}', [Admin\Bagou\BagouSettingsController::class, 'settings'])->name('admin.bagoucenter.settings.addon');
+
+    Route::get('/support/', [Admin\Bagou\BagouCenterController::class, 'settings'])->name('admin.bagoucenter.support');
+
+    Route::post('/license/{addon}', [Admin\Bagou\BagouLicenseController::class, 'setlicense']);
+    
+    Route::post('/versions', [Admin\Bagou\BagouVersionsController::class, 'refresh']);
+
+    	Route::group(['prefix' => 'settings/addon/mcversion'], function () {
+	    Route::get('/', [Admin\Bagou\BagouMcVersionsController::class, 'index'])->name('admin.bagoucenter.settings.addon.mcversions');
+            Route::post('/', [Admin\Bagou\BagouMcVersionsController::class, 'add']);
+            Route::delete('/{name}', [Admin\Bagou\BagouMcVersionsController::class, 'delete']);
+	});
+Route::delete('/license/{addon}', [Admin\Bagou\BagouLicenseController::class, 'removelicense']);
+    
+});

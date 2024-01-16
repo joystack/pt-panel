@@ -57,7 +57,7 @@ export default ({ className }: WithClassname) => {
         return () => timeouts.value.forEach(clearTimeout);
     }, []);
 
-    const onUploadProgress = (data: ProgressEvent, name: string) => {
+    const onUploadProgress = (data: any, name: string) => {
         setUploadProgress({ name, loaded: data.loaded });
     };
 
