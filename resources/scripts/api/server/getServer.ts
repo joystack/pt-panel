@@ -44,10 +44,11 @@ export interface Server {
     variables: ServerEggVariable[];
     allocations: Allocation[];
 
-  mcversion: string;
+    mcversion: string;
 
-  nestId: number;
-  eggId: number;}
+    nestId: number;
+    eggId: number;
+}
 
 export const rawDataToServerObject = ({ attributes: data }: FractalResponseData): Server => ({
     id: data.identifier,
@@ -56,10 +57,11 @@ export const rawDataToServerObject = ({ attributes: data }: FractalResponseData)
     name: data.name,
     node: data.node,
 
-  mcversion: data.mcversion,
+    mcversion: data.mcversion,
 
-  eggId: data.egg_id,
-  nestId: data.nest_id,    isNodeUnderMaintenance: data.is_node_under_maintenance,
+    eggId: data.egg_id,
+    nestId: data.nest_id,
+    isNodeUnderMaintenance: data.is_node_under_maintenance,
     status: data.status,
     invocation: data.invocation,
     dockerImage: data.docker_image,

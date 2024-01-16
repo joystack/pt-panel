@@ -77,4 +77,3 @@ function Pagination<T>({ data: { items, pagination }, onPageSelect, customcss, c
 }
 
 export default Pagination;
-

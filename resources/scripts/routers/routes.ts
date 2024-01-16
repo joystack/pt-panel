@@ -34,10 +34,10 @@ interface RouteDefinition {
 
 interface ServerRouteDefinition extends RouteDefinition {
     permission: string | string[] | null;
-   nestId?: number;
-   eggId?: number;
-   nestIds?: number[];
-   eggIds?: number[];
+    nestId?: number;
+    eggId?: number;
+    nestIds?: number[];
+    eggIds?: number[];
 }
 
 interface Routes {
@@ -85,13 +85,13 @@ export default {
             name: 'Files',
             component: FileManagerContainer,
         },
-    {
-      path: '/versions',
-      permission: 'file.*',
-      name: 'Version',
-      nestId: 1,
-      component: McVersionsContainer,
-    },
+        {
+            path: '/versions',
+            permission: 'file.*',
+            name: 'Version',
+            nestId: 1,
+            component: McVersionsContainer,
+        },
         {
             path: '/files/:action(edit|new)',
             permission: 'file.*',
